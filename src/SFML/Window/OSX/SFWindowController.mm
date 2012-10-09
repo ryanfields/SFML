@@ -516,6 +516,10 @@
 {
     // Send event.
     if (m_requester == 0) return;
+
+    if (NULL != m_display && NULL != m_fullscreenMode) {
+        m_display->setMode(*m_fullscreenMode);
+    }
     
     m_requester->windowGainedFocus();
 }
@@ -526,10 +530,13 @@
 {
     // Send event.
     if (m_requester == 0) return;
+
+    if (NULL != m_display && NULL != m_desktopMode) {
+        m_display->setMode(*m_desktopMode);
+    }
     
     m_requester->windowLostFocus();
 }
-
 
 #pragma mark
 #pragma mark Other methods
